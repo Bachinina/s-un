@@ -1,6 +1,6 @@
 export type TTaskListFilter = "all" | "completed" | "incomplete";
 
 export interface ITaskListFilterOption {
-	title: string;
-	value: TTaskListFilter;
+  title: string;
+  value: TTaskListFilter;
 }

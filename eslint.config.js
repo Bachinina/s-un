@@ -4,7 +4,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import importPlugin from "eslint-plugin-import";
 import boundaries from "eslint-plugin-boundaries";
-import tsParser from "@typescript-eslint/parser";
+import tseslint from "typescript-eslint";
 import prettier from "eslint-config-prettier";
 import globals from "globals";
 
@@ -20,7 +20,7 @@ export default [
     files: ["**/*.{js,jsx,ts,tsx}"],
 
     languageOptions: {
-      parser: tsParser,
+      parser: tseslint.parser,
       ecmaVersion: 2020,
       sourceType: "module",
       globals: {
@@ -38,6 +38,7 @@ export default [
       "jsx-a11y": jsxA11y,
       import: importPlugin,
       boundaries,
+      "@typescript-eslint": tseslint.plugin,
     },
 
     settings: {
@@ -67,6 +68,15 @@ export default [
       ...jsxA11y.configs.recommended.rules,
       ...importPlugin.configs.recommended.rules,
 
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
+
       "react/react-in-jsx-scope": "off",
       "react/jsx-uses-react": "off",
 
@@ -78,13 +88,17 @@ export default [
             {
               from: { type: "app" },
               allow: {
-                to: { type: ["pages", "widgets", "features", "entities", "shared"] },
+                to: {
+                  type: ["pages", "widgets", "features", "entities", "shared"],
+                },
               },
             },
             {
               from: { type: "pages" },
               allow: {
-                to: { type: ["widgets", "features", "entities", "shared"] },
+                to: {
+                  type: ["widgets", "features", "entities", "shared"],
+                },
               },
             },
             {

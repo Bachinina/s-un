@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import type { ITask } from "@entities/Task";
 import type { TTaskListFilter } from "./types";
@@ -29,9 +29,9 @@ export const useTasks = (): IUseTasksReturn => {
     }
   }, [tasks, filter]);
 
-  const removeTask = (id: string): void => {
+  const removeTask = useCallback((id: string): void => {
     setTasks((prev) => prev.filter((task) => task.id !== id));
-  };
+  }, []);
 
   return {
     tasks: filteredTasks,
