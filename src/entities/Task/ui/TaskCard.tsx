@@ -1,13 +1,15 @@
 import type { ITask } from "@entities/Task";
+import styles from "./TaskCard.module.css";
+import { memo } from "react";
 
 interface ITaskCardProps {
   task: ITask;
   onRemove: (id: string) => void;
 }
 
-export const TaskCard = ({ task, onRemove }: ITaskCardProps) => {
+export const TaskCard = memo(({ task, onRemove }: ITaskCardProps) => {
   return (
-    <div>
+    <div className={styles.card}>
       <h2>{task.title}</h2>
       <p>{task.completed ? "Завершена" : "Не завершена"}</p>
 
@@ -16,4 +18,6 @@ export const TaskCard = ({ task, onRemove }: ITaskCardProps) => {
       </button>
     </div>
   );
-};
+});
+
+TaskCard.displayName = "TaskCard";
