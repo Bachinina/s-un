@@ -1,19 +1,33 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import type { ITask } from "@entities/Task";
+import { useGetTasksQuery, type ITask } from "@entities/Task";
 import type { TTaskListFilter } from "./types";
-import { MOCK_TASKS } from "./constants";
 
 interface IUseTasksReturn {
   tasks: ITask[];
   filter: TTaskListFilter;
   setFilter: (filter: TTaskListFilter) => void;
-  removeTask: (id: string) => void;
+  removeTask: (id: ITask["id"]) => void;
+  isLoading: boolean;
+  isError: boolean;
 }
 
 export const useTasks = (): IUseTasksReturn => {
-  const [tasks, setTasks] = useState<ITask[]>(MOCK_TASKS);
+  const { data, isLoading, isError } = useGetTasksQuery();
+
+  const [tasks, setTasks] = useState<ITask[]>([]);
   const [filter, setFilter] = useState<TTaskListFilter>("all");
+
+  const hasCopiedTasks = useRef(false);
+
+  useEffect(() => {
+    if (!data || hasCopiedTasks.current) {
+      return;
+    }
+
+    setTasks([...data]);
+    hasCopiedTasks.current = true;
+  }, [data]);
 
   const filteredTasks = useMemo(() => {
     switch (filter) {
@@ -29,7 +43,7 @@ export const useTasks = (): IUseTasksReturn => {
     }
   }, [tasks, filter]);
 
-  const removeTask = useCallback((id: string): void => {
+  const removeTask = useCallback((id: ITask["id"]): void => {
     setTasks((prev) => prev.filter((task) => task.id !== id));
   }, []);
 
@@ -38,5 +52,7 @@ export const useTasks = (): IUseTasksReturn => {
     filter,
     setFilter,
     removeTask,
+    isLoading,
+    isError,
   };
 };

@@ -125,6 +125,17 @@ export default [
                 to: { type: "shared" },
               },
             },
+            // Исключение: shared может импортировать только типы из @app/store
+            {
+              from: { type: "shared" },
+              allow: {
+                to: { type: "app" },
+                dependency: {
+                  kind: "type",
+                  source: "@app/store",
+                },
+              },
+            },
           ],
         },
       ],
