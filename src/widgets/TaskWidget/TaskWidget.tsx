@@ -3,7 +3,11 @@ import styles from "./TaskWidget.module.css";
 import { FilterButton } from "@shared/ui/FilterButton";
 
 export const TaskWidget = () => {
-  const { tasks, filter, setFilter, removeTask } = useTasks();
+  const { tasks, filter, setFilter, removeTask, isLoading } = useTasks();
+
+  if (isLoading) {
+    return <div>Загрузка...</div>;
+  }
 
   return (
     <div>
