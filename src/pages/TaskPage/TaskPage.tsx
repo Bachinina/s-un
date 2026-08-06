@@ -1,9 +1,12 @@
 import { TaskWidget } from "@widgets/TaskWidget";
+import { Link } from "react-router";
+import { EAppRoutes } from "@shared/constants/routes";
+import { PageHeader } from "@widgets/PageHeader";
 
 export const TaskPage = () => {
   return (
     <div>
-      <h1>Мои задачи</h1>
+      <PageHeader title="Мои задачи" rightSlot={<Link to={EAppRoutes.SignUp}>Регистрация</Link>} />
       <TaskWidget />
     </div>
   );
