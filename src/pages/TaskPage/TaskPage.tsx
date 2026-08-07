@@ -6,7 +6,15 @@ import { PageHeader } from "@widgets/PageHeader";
 export const TaskPage = () => {
   return (
     <div>
-      <PageHeader title="Мои задачи" rightSlot={<Link to={EAppRoutes.SignUp}>Регистрация</Link>} />
+      <PageHeader
+        title="Мои задачи"
+        rightSlot={
+          <>
+            <Link to={EAppRoutes.SignUp}>Регистрация</Link>
+            <Link to={EAppRoutes.RefExamples}>Примеры Ref</Link>
+          </>
+        }
+      />
       <TaskWidget />
     </div>
   );
