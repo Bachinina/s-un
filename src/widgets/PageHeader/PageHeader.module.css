@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+.rightSlot {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .rightSlot > a {
   display: flex;
   text-decoration: none;
