@@ -7,7 +7,7 @@ import { Link } from "react-router";
 export const SignUpPage = () => {
   return (
     <div>
-      <PageHeader title="Регистрация" rightSlot={<Link to={EAppRoutes.Main}>Список задач</Link>} />
+      <PageHeader title="Регистрация" rightSlot={<Link to={EAppRoutes.Login}>Войти</Link>} />
       <SignUpForm />
       <hr />
       <SubscriptionWizard />

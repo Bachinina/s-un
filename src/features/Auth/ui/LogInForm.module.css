@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 280px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.form button {
+  padding: 5px;
+  border-radius: 4px;
+  background-color: cornflowerblue;
+  color: white;
+  border: none;
+}
+
+.error {
+  margin: 0;
+  margin-top: 2px;
+  color: coral;
+}
