@@ -1,14 +1,15 @@
-import { TaskPage } from "@pages/TaskPage";
 import "./App.css";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import { BrowserRouter } from "react-router";
+import { AppRouter } from "./router";
 
-function App() {
+export const App = () => {
   return (
     <Provider store={store}>
-      <TaskPage />
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
     </Provider>
   );
-}
-
-export default App;
+};

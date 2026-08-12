@@ -1,0 +1,51 @@
+.wizard {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 280px;
+}
+
+.wizard p {
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form button {
+  padding: 5px;
+  border-radius: 4px;
+  background-color: cornflowerblue;
+  color: white;
+  border: none;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.error {
+  margin: 0;
+  color: coral;
+}
+
+.success {
+  margin: 0;
+  color: green;
+}
+
+.pending {
+  width: 100%;
+  margin: 0;
+}
