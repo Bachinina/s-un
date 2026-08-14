@@ -1,0 +1,41 @@
+.trigger {
+  display: inline-flex;
+}
+
+.tooltip {
+  pointer-events: none;
+  display: flex;
+  background-color: #000;
+  color: #fff;
+  max-width: 140px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  position: fixed;
+}
+
+.top {
+  transform: translate(-50%, -100%);
+}
+
+.bottom {
+  transform: translate(-50%, 2px);
+}
+
+.left {
+  transform: translate(-100%, -50%);
+}
+
+.right {
+  transform: translate(2px, -50%);
+}
+
+.light {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark {
+  background-color: #000;
+  color: #fff;
+}
