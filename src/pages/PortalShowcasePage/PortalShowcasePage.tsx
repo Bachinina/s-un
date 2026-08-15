@@ -4,7 +4,7 @@ import { ConfirmDialog, useConfirmDialog } from "@shared/ui/ConfirmDialog";
 import { useTheme } from "@shared/lib/hooks/useTheme";
 import { ETheme } from "@shared/constants/theme";
 
-export const PortalShowcase = () => {
+export const PortalShowcasePage = () => {
   const { theme, setTheme } = useTheme();
   const { dialogOptions, showConfirmDialog, handleConfirm, handleCancel } = useConfirmDialog();
 

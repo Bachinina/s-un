@@ -3,3 +3,7 @@ export interface ITask {
   title: string;
   completed: boolean;
 }
+
+export interface IOptimisticTask extends ITask {
+  isPending?: boolean;
+}

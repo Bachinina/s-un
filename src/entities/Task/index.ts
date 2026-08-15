@@ -1,3 +1,3 @@
-export type { ITask } from "./model/types";
+export type { ITask, IOptimisticTask } from "./model/types";
 export { TaskCard } from "./ui/TaskCard";
 export { tasksApi, useGetTasksQuery } from "./api/tasksApi";
