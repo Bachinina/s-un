@@ -8,11 +8,13 @@ import { LogInPage } from "@pages/LogInPage";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { ProfilePage } from "@pages/ProfilePage";
 import { PublicPage } from "@pages/PublicPage";
+import { PortalShowcase } from "@pages/PortalShowcase";
 
 export const AppRouter = () => {
   return (
     <Routes>
       <Route path={EAppRoutes.Main} element={<PublicPage />} />
+      <Route path={EAppRoutes.PortalShowcase} element={<PortalShowcase />} />
       <Route path={EAppRoutes.Login} element={<LogInPage />} />
       <Route path={EAppRoutes.SignUp} element={<SignUpPage />} />
 

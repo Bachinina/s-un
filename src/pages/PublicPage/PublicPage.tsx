@@ -18,6 +18,9 @@ export const PublicPage = () => {
             <li>
               <Link to={EAppRoutes.SignUp}>Зарегистрироваться</Link>
             </li>
+            <li>
+              <Link to={EAppRoutes.PortalShowcase}>Демонстрация работы портала</Link>
+            </li>
           </>
         ) : (
           <li>
