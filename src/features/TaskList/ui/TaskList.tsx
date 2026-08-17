@@ -1,8 +1,8 @@
 import { TaskCard } from "@entities/Task";
-import type { ITask } from "@entities/Task";
+import type { IOptimisticTask } from "@entities/Task";
 
 interface ITaskListProps {
-  tasks: ITask[];
+  tasks: IOptimisticTask[];
   onRemoveTask: (id: string) => void;
 }
 
@@ -15,7 +15,7 @@ export const TaskList = ({ tasks, onRemoveTask }: ITaskListProps) => {
     <ul>
       {tasks.map((task) => (
         <li key={task.id}>
-          <TaskCard task={task} onRemove={onRemoveTask} />
+          <TaskCard task={task} onRemove={onRemoveTask} isPending={task.isPending} />
         </li>
       ))}
     </ul>

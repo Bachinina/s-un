@@ -8,13 +8,15 @@ import { LogInPage } from "@pages/LogInPage";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { ProfilePage } from "@pages/ProfilePage";
 import { PublicPage } from "@pages/PublicPage";
-import { PortalShowcase } from "@pages/PortalShowcase";
+import { PortalShowcasePage } from "@pages/PortalShowcasePage";
+import { React19ExamplesPage } from "@pages/React19ExamplesPage";
 
 export const AppRouter = () => {
   return (
     <Routes>
       <Route path={EAppRoutes.Main} element={<PublicPage />} />
-      <Route path={EAppRoutes.PortalShowcase} element={<PortalShowcase />} />
+      <Route path={EAppRoutes.PortalShowcasePage} element={<PortalShowcasePage />} />
+      <Route path={EAppRoutes.React19Examples} element={<React19ExamplesPage />} />
       <Route path={EAppRoutes.Login} element={<LogInPage />} />
       <Route path={EAppRoutes.SignUp} element={<SignUpPage />} />
 

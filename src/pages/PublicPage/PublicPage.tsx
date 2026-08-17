@@ -19,7 +19,10 @@ export const PublicPage = () => {
               <Link to={EAppRoutes.SignUp}>Зарегистрироваться</Link>
             </li>
             <li>
-              <Link to={EAppRoutes.PortalShowcase}>Демонстрация работы портала</Link>
+              <Link to={EAppRoutes.PortalShowcasePage}>Демонстрация работы портала</Link>
+            </li>
+            <li>
+              <Link to={EAppRoutes.React19Examples}>Демонстрация работы хуков из React 19</Link>
             </li>
           </>
         ) : (

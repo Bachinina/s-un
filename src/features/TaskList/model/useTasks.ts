@@ -7,6 +7,7 @@ interface IUseTasksReturn {
   tasks: ITask[];
   filter: TTaskListFilter;
   setFilter: (filter: TTaskListFilter) => void;
+  addTask: (task: ITask) => void;
   removeTask: (id: ITask["id"]) => void;
   isLoading: boolean;
   isError: boolean;
@@ -47,10 +48,15 @@ export const useTasks = (): IUseTasksReturn => {
     setTasks((prev) => prev.filter((task) => task.id !== id));
   }, []);
 
+  const addTask = useCallback((task: ITask): void => {
+    setTasks((prev) => [task, ...prev]);
+  }, []);
+
   return {
     tasks: filteredTasks,
     filter,
     setFilter,
+    addTask,
     removeTask,
     isLoading,
     isError,
